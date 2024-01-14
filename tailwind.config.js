@@ -8,6 +8,14 @@ export default {
       },
       colors: {
         headingColor: "#11175D",
+        blackColor: "#000000",
+        whiteColor: "#ffffff",
+        "btn-bg": "#5F35F5",
+      },
+      fontFamily: {
+        poppins: "'Poppins', sans-serif",
+        openSans: "'Open Sans', sans-serif",
+        nunito: "'Nunito', sans-serif",
       },
     },
   },
