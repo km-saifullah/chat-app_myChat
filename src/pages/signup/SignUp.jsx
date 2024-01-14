@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 import Image from "../../utils/Image";
 import SignUpBanner from "../../assets/signup_banner.png";
 import InputField from "../../utils/InputField";
@@ -6,6 +8,7 @@ import Button from "../../utils/Button";
 import AuthToggle from "../../utils/AuthToggle";
 
 const SignUp = () => {
+  const [passShow, setPassShow] = useState(false);
   return (
     <section className="">
       <div className="container mx-auto">
@@ -20,8 +23,21 @@ const SignUp = () => {
             <div className="flex flex-col gap-[34px]">
               <InputField type="email" placeholder="Enter Email" />
               <InputField type="text" placeholder="Enter Your Name" />
-              <InputField type="password" placeholder="Enter Password" />
-              <Button className="" title="Sign Up" />
+              <div className="relative">
+                <InputField
+                  type={passShow ? "password" : "text"}
+                  placeholder="Enter Password"
+                />
+                <div>
+                  <button
+                    className="absolute right-[152px] top-[18px]"
+                    onClick={() => setPassShow(!passShow)}
+                  >
+                    {passShow ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+              </div>
+              <Button title="Sign Up" />
               <AuthToggle title="Sign In" routeLink="/" />
             </div>
           </div>

@@ -11,6 +11,7 @@ export default {
         blackColor: "#000000",
         whiteColor: "#ffffff",
         "btn-bg": "#5F35F5",
+        secondary: "#03014C",
       },
       fontFamily: {
         poppins: "'Poppins', sans-serif",
