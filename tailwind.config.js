@@ -6,6 +6,9 @@ export default {
       maxWidth: {
         container: "1320px",
       },
+      colors: {
+        headingColor: "#11175D",
+      },
     },
   },
   daisyui: {
