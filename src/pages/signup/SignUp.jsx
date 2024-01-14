@@ -25,7 +25,7 @@ const SignUp = () => {
               <InputField type="text" placeholder="Enter Your Name" />
               <div className="relative">
                 <InputField
-                  type={passShow ? "password" : "text"}
+                  type={passShow ? "text" : "password"}
                   placeholder="Enter Password"
                 />
                 <div>
@@ -33,7 +33,7 @@ const SignUp = () => {
                     className="absolute right-[152px] top-[18px]"
                     onClick={() => setPassShow(!passShow)}
                   >
-                    {passShow ? <FaEyeSlash /> : <FaEye />}
+                    {passShow ? <FaEye /> : <FaEyeSlash />}
                   </button>
                 </div>
               </div>

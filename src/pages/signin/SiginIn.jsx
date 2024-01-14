@@ -54,7 +54,7 @@ const SiginIn = () => {
                 </div>
                 <div className="relative">
                   <input
-                    type={passShow ? "password" : "text"}
+                    type={passShow ? "text" : "password"}
                     name="password"
                     placeholder="Enter your password"
                     className=" input input-bordered input-primary text-headingColor font-openSans font-semibold text-4 w-[368px]"
@@ -64,7 +64,7 @@ const SiginIn = () => {
                       className="absolute right-[-30px] top-[18px]"
                       onClick={() => setPassShow(!passShow)}
                     >
-                      {passShow ? <FaEyeSlash /> : <FaEye />}
+                      {passShow ? <FaEye /> : <FaEyeSlash />}
                     </button>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AuthToggle = ({ text, title, routeLink }) => {
+const AuthToggle = ({ title, routeLink }) => {
   return (
     <p className="pl-[75px] font-openSans text-[14px] font-normal text-[#03014C]">
       {title == "Sign In"
