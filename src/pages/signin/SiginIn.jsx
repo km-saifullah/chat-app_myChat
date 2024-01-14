@@ -6,6 +6,7 @@ import SignInBanner from "../../assets/signin_banner.jpg";
 import GoogleIcon from "../../assets/google_icon.svg";
 import Button from "../../utils/Button";
 import AuthToggle from "../../utils/AuthToggle";
+import ForgotPassword from "../../utils/ForgotPassword";
 
 const SiginIn = () => {
   const [passShow, setPassShow] = useState(false);
@@ -75,6 +76,7 @@ const SiginIn = () => {
                 onClick={handleSignin}
               />
               <AuthToggle title="Sign Up" routeLink="/signup" />
+              <ForgotPassword />
             </div>
           </div>
           <div className="w-[683px] h-[100vh] overflow-hidden">
