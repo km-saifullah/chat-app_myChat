@@ -148,7 +148,7 @@ const SignUp = () => {
                     className="absolute right-[152px] top-[18px]"
                     onClick={() => setConfirmPassShow(!confirmPassShow)}
                   >
-                    {passShow ? <FaEye /> : <FaEyeSlash />}
+                    {confirmPassShow ? <FaEye /> : <FaEyeSlash />}
                   </button>
                 </div>
               </div>
