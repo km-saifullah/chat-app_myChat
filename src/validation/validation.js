@@ -34,3 +34,35 @@ export const validatePassword = (userPassword) => {
     return error;
   }
 };
+
+// confirm password validation
+export const validateConfirmPassword = (userPassword, confirmPassword) => {
+  if (!confirmPassword) {
+    let error = "Please Enter Confirm Password";
+    return error;
+  } else if (!passwordRegEx.test(confirmPassword)) {
+    let error =
+      "Enter at least 8 characters with uppercase, lowercase, number and one special character!";
+    return error;
+  } else if (userPassword != confirmPassword) {
+    let error = "Password does not match!";
+    return error;
+  } else {
+    let error = null;
+    return error;
+  }
+};
+
+// name validation logics
+export const validateName = (userName) => {
+  if (!userName) {
+    let error = "Please Enter Your Name";
+    return error;
+  } else if (!nameRegEx.test(userName)) {
+    let error = "Enter a valid name";
+    return error;
+  } else {
+    let error = null;
+    return error;
+  }
+};
