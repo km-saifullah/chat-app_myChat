@@ -7,18 +7,39 @@ import GoogleIcon from "../../assets/google_icon.svg";
 import Button from "../../utils/Button";
 import AuthToggle from "../../utils/AuthToggle";
 import ForgotPassword from "../../utils/ForgotPassword";
+import { validateEmail, validatePassword } from "../../validation/validation";
+import Error from "../../components/error/Error";
 
 const SiginIn = () => {
   const [passShow, setPassShow] = useState(false);
+  const [signedUser, setSignedUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState({
+    mailError: "",
+    passwordError: "",
+  });
 
+  // handle input fields
+  const handleInput = (e) => {
+    const loginInfo = { ...signedUser };
+    loginInfo[e.target.name] = e.target.value;
+    setSignedUser(loginInfo);
+  };
+
+  // handle signin click
   const handleSignin = () => {
-    console.log("Clicked");
+    let emailError = validateEmail(signedUser.email);
+    let passError = validatePassword(signedUser.password);
+    setError({ ...error, mailError: emailError, passwordError: passError });
+    setSignedUser({ email: "", password: "" });
   };
 
   return (
     <section>
       <div className=" container mx-auto">
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between">
           <div>
             <h2 className="text-headingColor text-[35px] font-bold leading-[auto] font-nunito">
               Login to your account!
@@ -43,9 +64,19 @@ const SiginIn = () => {
                 <input
                   type="email"
                   name="email"
+                  value={signedUser.email}
+                  onChange={handleInput}
                   placeholder="Youraddres@email.com"
                   className="input input-bordered input-primary text-headingColor font-openSans font-semibold text-4 w-[368px]"
                 />
+                <div
+                  className="w-[368px]"
+                  style={{ paddingTop: error.mailError ? "10px" : "0px" }}
+                >
+                  {error.mailError ? (
+                    <Error errorMsg={error.mailError} />
+                  ) : null}
+                </div>
               </label>
               <label className="form-control w-full max-w-xs">
                 <div className="label">
@@ -57,9 +88,19 @@ const SiginIn = () => {
                   <input
                     type={passShow ? "text" : "password"}
                     name="password"
+                    value={signedUser.password}
+                    onChange={handleInput}
                     placeholder="Enter your password"
                     className=" input input-bordered input-primary text-headingColor font-openSans font-semibold text-4 w-[368px]"
                   />
+                  <div
+                    className="w-[368px]"
+                    style={{ paddingTop: error.passwordError ? "10px" : "0px" }}
+                  >
+                    {error.passwordError ? (
+                      <Error errorMsg={error.passwordError} />
+                    ) : null}
+                  </div>
                   <div>
                     <button
                       className="absolute right-[-30px] top-[18px]"
@@ -93,6 +134,3 @@ const SiginIn = () => {
 };
 
 export default SiginIn;
-
-//
-//

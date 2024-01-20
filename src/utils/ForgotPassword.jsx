@@ -1,10 +1,9 @@
 import React from "react";
 import InputField from "./InputField";
-import Button from "./Button";
 
 const ForgotPassword = () => {
   return (
-    <div className="">
+    <div>
       <label
         htmlFor="my_modal_6"
         className="btn flex font-openSans text-[14px] font-semibold text-headingColor border-2 border-purple-400"
