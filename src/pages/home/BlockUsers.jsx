@@ -1,8 +1,8 @@
 import React from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import FriendsItem from "../../utils/FriendsItem";
+import BlockUsersItem from "../../utils/BlockUsersItem";
 
-const Friends = ({ title }) => {
+const BlockUsers = ({ title }) => {
   return (
     <section className="h-[435px] overflow-y-scroll no-scrollbar w-[400px] p-10 shadow-xl rounded-[20px]">
       <div className="flex items-center justify-between">
@@ -14,14 +14,15 @@ const Friends = ({ title }) => {
         </div>
       </div>
       <div>
-        <FriendsItem />
-        <FriendsItem />
-        <FriendsItem />
-        <FriendsItem />
-        <FriendsItem />
+        <BlockUsersItem />
+        <BlockUsersItem />
+        <BlockUsersItem />
+        <BlockUsersItem />
+        <BlockUsersItem />
+        <BlockUsersItem />
       </div>
     </section>
   );
 };
 
-export default Friends;
+export default BlockUsers;
