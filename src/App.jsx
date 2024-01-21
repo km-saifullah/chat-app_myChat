@@ -7,14 +7,25 @@ import {
 } from "react-router-dom";
 import SiginIn from "./pages/signin/SiginIn";
 import SignUp from "./pages/signup/SignUp";
+import Home from "./pages/home/Home";
+import MainLayout from "./components/layouts/MainLayout";
+import Messages from "./pages/message/Messages";
+import Settings from "./pages/settings/Settings";
+import Notification from "./pages/notification/Notification";
 
 // All Routes
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <>
       <Route path="/" element={<SiginIn />} />
       <Route path="/signup" element={<SignUp />} />
-    </Route>
+      <Route element={<MainLayout />}>
+        <Route path="/home" element={<Home />} />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="/settings" element={<Settings />} />
+      </Route>
+    </>
   )
 );
 
