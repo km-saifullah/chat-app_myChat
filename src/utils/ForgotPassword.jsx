@@ -6,7 +6,7 @@ const ForgotPassword = () => {
     <div>
       <label
         htmlFor="my_modal_6"
-        className="btn flex font-openSans text-[14px] font-semibold text-headingColor border-2 border-purple-400"
+        className="btn flex font-openSans text-[14px] font-semibold text-headingColor border-2 border-[#3887BE]"
       >
         Forgot Password?
       </label>
@@ -22,7 +22,7 @@ const ForgotPassword = () => {
               placeholder="youremail@gmail.com"
               className="font-nunito font-medium text-headingColor "
             />
-            <button className="btn btn-primary w-[120px] font-openSans text-[14px] font-medium text-whiteColor">
+            <button className="btn btn-info w-[120px] font-openSans text-[14px] font-medium text-whiteColor">
               Send Email
             </button>
           </div>

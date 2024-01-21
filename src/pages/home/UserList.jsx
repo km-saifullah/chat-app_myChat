@@ -9,7 +9,7 @@ const UserList = ({ title }) => {
         <h3 className="text-black text-xl font-semibold font-poppins ">
           {title}
         </h3>
-        <div className="bg-gray-200 p-2 rounded-full hover:bg-primary cursor-pointer text-primary hover:text-gray-200">
+        <div className="bg-gray-200 p-2 rounded-full hover:bg-[#3887BE] cursor-pointer text-[#3887BE] hover:text-gray-200">
           <BsThreeDotsVertical />
         </div>
       </div>

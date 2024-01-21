@@ -19,7 +19,7 @@ const Sidebar = () => {
           </div>
           <div>
             <ul className="flex items-center justify-center flex-col gap-[100px]">
-              <li className="text-white text-3xl">
+              <li className="text-white text-3xl ">
                 <NavLink to="/home">
                   <IoHomeOutline />
                 </NavLink>
