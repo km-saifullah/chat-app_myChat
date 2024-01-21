@@ -4,7 +4,7 @@ import UserListItem from "../../utils/UserListItem";
 
 const UserList = ({ title }) => {
   return (
-    <section className="h-[445px] overflow-y-scroll no-scrollbar w-[370px] p-10 shadow-xl rounded-[20px]">
+    <section className="h-[445px] overflow-y-scroll no-scrollbar w-[400px] p-10 shadow-xl rounded-[20px]">
       <div className="flex items-center justify-between">
         <h3 className="text-black text-xl font-semibold font-poppins ">
           {title}
