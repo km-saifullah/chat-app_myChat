@@ -7,12 +7,12 @@ import BlockUsers from "./BlockUsers";
 
 const Home = () => {
   return (
-    <section className="px-[60px] py-[20px]">
+    <section className="px-[150px]">
       <div className="container mx-auto">
-        <div className="w-full">
+        <div className="shadow-3xl py-3 w-full h-[40px] rounded-[20px] px-[23px]">
           <SearchBar />
         </div>
-        <div className="w-full flex items-center justify-between flex-wrap">
+        <div className="w-full flex items-center gap-x-[80px] gap-y-5 flex-wrap">
           <UserList title="User List" />
           <Friends title="Friends" />
           <FriendRequest title="Friend Request" />
