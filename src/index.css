@@ -8,3 +8,7 @@
     display: none;
   }
 }
+
+.active {
+  @apply text-orange-400;
+}
