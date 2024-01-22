@@ -12,6 +12,7 @@ import MainLayout from "./components/layouts/MainLayout";
 import Messages from "./pages/message/Messages";
 import Settings from "./pages/settings/Settings";
 import Notification from "./pages/notification/Notification";
+import NotFound from "./pages/notFound/NotFound";
 
 // All Routes
 const router = createBrowserRouter(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         <Route path="/notification" element={<Notification />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </>
   )
 );
