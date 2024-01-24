@@ -13,6 +13,9 @@ import {
   validateName,
   validatePassword,
 } from "../../validation/validation";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../db/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [passShow, setPassShow] = useState(false);
@@ -29,6 +32,8 @@ const SignUp = () => {
     passwordError: "",
     confirmPasswordError: "",
   });
+  const [isLoaded, setIsLoaded] = useState(false);
+  const navigate = useNavigate();
 
   // handle input fields
   const handleInput = (e) => {
@@ -39,6 +44,7 @@ const SignUp = () => {
 
   // handle signup click
   const handleSignUp = (e) => {
+    // email, password and fullname validation
     const emailError = validateEmail(registerUser.email);
     const fullNameError = validateName(registerUser.fullName);
     const passError = validatePassword(registerUser.password);
@@ -53,13 +59,54 @@ const SignUp = () => {
       passwordError: passError,
       confirmPasswordError: confirmPassError,
     });
-    console.log(registerUser);
-    setRegisterUser({
-      email: "",
-      fullName: "",
-      password: "",
-      confirmPassword: "",
-    });
+
+    // signup user
+    if (
+      !error.mailError &&
+      !error.nameError &&
+      !error.passwordError &&
+      !error.confirmPasswordError &&
+      registerUser.password == registerUser.confirmPassword
+    ) {
+      createUserWithEmailAndPassword(
+        auth,
+        registerUser.email,
+        registerUser.password
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          setIsLoaded(true);
+          setRegisterUser({
+            email: "",
+            fullName: "",
+            password: "",
+            confirmPassword: "",
+          });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+          if (errorCode == "auth/email-already-in-use") {
+            setError({ mailError: "You have already use this email" });
+          }
+        });
+    }
+    setTimeout(() => {
+      setIsLoaded(false);
+      if (
+        !error.mailError &&
+        !error.nameError &&
+        !error.passwordError &&
+        !error.confirmPasswordError &&
+        registerUser.password != registerUser.confirmPassword
+      ) {
+        navigate(null);
+      } else {
+        navigate("/");
+      }
+    }, 2000);
   };
 
   return (
@@ -152,7 +199,11 @@ const SignUp = () => {
                   </button>
                 </div>
               </div>
-              <Button title="Sign Up" onClick={handleSignUp} />
+              {isLoaded ? (
+                <span className="loading loading-spinner text-info h-[60px] w-[60px] ml-[160px]"></span>
+              ) : (
+                <Button title="Sign Up" onClick={handleSignUp} />
+              )}
               <AuthToggle title="Sign In" routeLink="/" />
             </div>
           </div>

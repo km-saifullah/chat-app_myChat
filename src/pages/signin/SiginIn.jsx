@@ -9,9 +9,13 @@ import AuthToggle from "../../utils/AuthToggle";
 import ForgotPassword from "../../utils/ForgotPassword";
 import { validateEmail, validatePassword } from "../../validation/validation";
 import Error from "../../components/error/Error";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../db/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const SiginIn = () => {
   const [passShow, setPassShow] = useState(false);
+  const navigate = useNavigate();
   const [signedUser, setSignedUser] = useState({
     email: "",
     password: "",
@@ -33,6 +37,26 @@ const SiginIn = () => {
     let emailError = validateEmail(signedUser.email);
     let passError = validatePassword(signedUser.password);
     setError({ ...error, mailError: emailError, passwordError: passError });
+    // signin user with password and email
+    if (!error.mailError && !error.passwordError) {
+      signInWithEmailAndPassword(auth, signedUser.email, signedUser.password)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+          navigate("/home");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          if (errorCode == "auth/invalid-credential") {
+            setError({
+              passwordError: "Please Enter Correct Email and Password!",
+            });
+          }
+        });
+    }
+
     setSignedUser({ email: "", password: "" });
   };
 

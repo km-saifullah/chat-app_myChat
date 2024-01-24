@@ -15,7 +15,7 @@ export const validateEmail = (userEmail) => {
     let error = "Enter a valid Email Address";
     return error;
   } else {
-    let error = null;
+    let error = false;
     return error;
   }
 };
@@ -30,7 +30,7 @@ export const validatePassword = (userPassword) => {
       "Enter at least 8 characters with uppercase, lowercase, number and one special character!";
     return error;
   } else {
-    let error = null;
+    let error = false;
     return error;
   }
 };
@@ -48,7 +48,7 @@ export const validateConfirmPassword = (userPassword, confirmPassword) => {
     let error = "Password does not match!";
     return error;
   } else {
-    let error = null;
+    let error = false;
     return error;
   }
 };
@@ -62,7 +62,7 @@ export const validateName = (userName) => {
     let error = "Enter a valid name";
     return error;
   } else {
-    let error = null;
+    let error = false;
     return error;
   }
 };
